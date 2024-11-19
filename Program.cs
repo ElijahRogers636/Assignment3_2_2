@@ -17,10 +17,13 @@
         // Adds two int Matrixes together. (Matricies must be the same size to add so we can assume dimesion and row length based off one array)
         static int[,] MatrixAddition(int[,] firstArr, int[,] secondArr)
         {
-            int[,] twoDTempArr = new int[firstArr.GetLength(0), firstArr.GetLength(1)];
-            for (int i = 0; i < firstArr.GetLength(0); i++)
+            int rows = firstArr.GetLength(0);
+            int cols = firstArr.GetLength(1);
+            int[,] twoDTempArr = new int[rows, cols];
+
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < firstArr.GetLength(1); j++)
+                for (int j = 0; j < cols; j++)
                 {
                     twoDTempArr[i, j] = firstArr[i, j] + secondArr[i, j];
                 }
@@ -31,11 +34,14 @@
         // Matrix printer from last assignment
         static void MatrixPrint(int[,] twoDIntArr)
         {
-            for (int i = 0; i < twoDIntArr.GetLength(0); i++)
+            int rows = twoDIntArr.GetLength(0);
+            int cols = twoDIntArr.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
             {
                 Console.WriteLine();
                 Console.Write("|");
-                for (int j = 0; j < twoDIntArr.GetLength(1); j++)
+                for (int j = 0; j < cols; j++)
                 {
                     Console.Write($" {twoDIntArr[i, j]} |");
                 }
